@@ -18,36 +18,17 @@
       {
         "group": "Getting Started",
         "pages": [
-          "introduction",
-          "quickstart",
-          "getting-started/what-is-launchdocs",
-          "getting-started/creating-a-project",
-          "getting-started/uploading-source-files"
+          "Getting Started",
+          "LaunchPad Approvals",
+          "Project and Organization Management",
         ]
-      },
-      {
-        "group": "Features",
-        "pages": [
-          "features/generation",
-          "features/launchpad-approvals",
-          "features/company-settings",
-          "features/version-history",
-          "features/exporting-and-publishing"
-        ]
-      },
-      {
-        "group": "API Reference",
-        "pages": [
-          "api-reference/overview",
-          "api-reference/authentication",
-          "api-reference/projects",
-          "api-reference/organizations"
-        ]
-      },
+         },
+    
       {
         "group": "Support",
         "pages": [
-          "faq"
+          "Frequently Asked Questions"
+          "Data Handling and Privacy"
         ]
       }
     ]
