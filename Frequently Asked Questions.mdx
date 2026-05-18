@@ -1,26 +1,33 @@
-## Frequently Asked Questions  
+---
+title: "Frequently Asked Questions"
+---
 
-### Getting Started  
-- **Supported File Types**: LaunchDocs accepts PDF, DOCX, TXT, MD, VTT, SRT, and CSV. Zoom VTT transcripts strip timestamps for dialogue extraction. Max file size is 10MB.  
-- **Source File Quality**: Good source material includes Jira exports, PRD documents, meeting notes, transcripts, API specs, and more. Better context yields better results.  
+### Getting Started
 
-### Generation  
-- **Draft Types**: "Fast Draft" uses Claude Haiku for speed, while "High Quality" uses Claude Sonnet for detailed output. Both depend on your content.  
-- **AI Behavior**: The AI uses only provided content; it does not search external data. Unclear information is flagged for review.  
-- **Page Generation**: Page count correlates with content size. Less than 5,000 characters might create up to 3 pages; larger sizes mean more pages.  
-- **Failure Protocols**: A secondary AI provider ensures continuity if the primary fails. Errors prompt retry notices only if both fail.  
+- **Supported File Types**: LaunchDocs accepts PDF, DOCX, TXT, MD, VTT, SRT, and CSV. Zoom VTT transcripts strip timestamps for dialogue extraction. Max file size is 10MB.
+- **Source File Quality**: Good source material includes Jira exports, PRD documents, meeting notes, transcripts, API specs, and more. Better context yields better results.
 
-### Editing and Versions  
-- **Content Editing**: Fully editable, supporting various formats with auto-saved changes.  
-- **Version History**: Up to 20 stored snapshots with restore capability, comparing changes via diff view.  
+### Generation
 
-### Approvals and Export  
-- **Reviewer Access**: No account needed; email link allows full functionality.  
-- **Unavailability Handling**: Admin overrides are logged with reasons for accountability.  
-- **Variable Resolution**: Tokens resolve upon preview or export, ensuring polished output.  
-- **Team Collaboration**: Growth and Scale plans support unlimited users with varied permission roles.  
+- **Draft Types**: "Fast Draft" uses Claude Haiku for speed, while "High Quality" uses Claude Sonnet for detailed output. Both depend on your content.
+- **AI Behavior**: The AI uses only provided content; it does not search external data. Unclear information is flagged for review.
+- **Page Generation**: Page count correlates with content size. Less than 5,000 characters might create up to 3 pages; larger sizes mean more pages.
+- **Failure Protocols**: A secondary AI provider ensures continuity if the primary fails. Errors prompt retry notices only if both fail.
 
-### Security  
-- **Data Storage**: Encrypted storage in MongoDB Atlas, segregated by organization.  
-- **Project Data Access**: No cross-access; every call is isolated to specific project uploads.  
+### Editing and Versions
+
+- **Content Editing**: Fully editable, supporting various formats with auto-saved changes.
+- **Version History**: Up to 20 stored snapshots with restore capability, comparing changes via diff view.
+
+### Approvals and Export
+
+- **Reviewer Access**: No account needed; email link allows full functionality.
+- **Unavailability Handling**: Admin overrides are logged with reasons for accountability.
+- **Variable Resolution**: Tokens resolve upon preview or export, ensuring polished output.
+- **Team Collaboration**: Growth and Scale plans support unlimited users with varied permission roles.
+
+### Security
+
+- **Data Storage**: Encrypted storage in MongoDB Atlas, segregated by organization.
+- **Project Data Access**: No cross-access; every call is isolated to specific project uploads.
 - **SSO and MFA**: Supported via SAML 2.0 and Okta on Scale plans with optional MFA enforcement.
