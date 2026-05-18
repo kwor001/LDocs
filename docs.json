@@ -5,11 +5,11 @@
   "colors": {
     "primary": "#E8326A",
     "light": "#f4839e",
-    "dark": "#7B2FBE"
+    "dark": "#000000"
   },
   "logo": {
-    "light": "/logo/launchdocs-logo.png",
-    "dark": "/logo/launchdocs-logo.png",
+    "light": "/logo/logo-inverse.png",
+    "dark": "/logo/logo-light.png",
     "href": "https://launchdocs.ai"
   },
   "favicon": "/logo/launchdocs-logo.png",
