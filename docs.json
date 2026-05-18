@@ -8,8 +8,8 @@
     "dark": "#000000"
   },
   "logo": {
-    "light": "/logo/logo-inverse.png",
-    "dark": "/logo/logo-light.png",
+    "dark": "/logo/logo-inverse.png",
+    "light": "/logo/logo-light.png",
     "href": "https://launchdocs.ai"
   },
   "favicon": "/logo/launchdocs-logo.png",
