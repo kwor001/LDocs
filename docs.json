@@ -1,0 +1,68 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "LaunchDocs",
+  "colors": {
+    "primary": "#E8326A",
+    "light": "#f4839e",
+    "dark": "#7B2FBE"
+  },
+  "logo": {
+    "light": "/logo/launchdocs-logo.png",
+    "dark": "/logo/launchdocs-logo.png",
+    "href": "https://launchdocs.ai"
+  },
+  "favicon": "/logo/launchdocs-logo.png",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "introduction",
+          "quickstart",
+          "getting-started/what-is-launchdocs",
+          "getting-started/creating-a-project",
+          "getting-started/uploading-source-files"
+        ]
+      },
+      {
+        "group": "Features",
+        "pages": [
+          "features/generation",
+          "features/launchpad-approvals",
+          "features/company-settings",
+          "features/version-history",
+          "features/exporting-and-publishing"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "pages": [
+          "api-reference/overview",
+          "api-reference/authentication",
+          "api-reference/projects",
+          "api-reference/organizations"
+        ]
+      },
+      {
+        "group": "Support",
+        "pages": [
+          "faq"
+        ]
+      }
+    ]
+  },
+  "topbarLinks": [
+    {
+      "name": "Sign in",
+      "url": "https://launchdocs.ai/login"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Start free trial",
+    "url": "https://launchdocs.ai/signup"
+  },
+  "footerSocials": {
+    "linkedin": "https://www.linkedin.com/company/launchdocs"
+  }
+}
