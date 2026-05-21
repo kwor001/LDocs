@@ -1,0 +1,146 @@
+---
+title: "Release Tags"
+description: "Tie documentation projects to a release, gate exports on approval, and wire sign-off into your release pipeline."
+---
+
+## Overview
+
+Release Tags let you connect a LaunchDocs project to a specific product release — a version number, a sprint name, or any label your team uses. Once tagged, you can mark the project as release-blocking, which means all approvers must sign off before the documentation can be exported and the release can ship.
+
+When all approvers sign off on a release-blocking project, LaunchDocs fires a webhook to any URL you configure — so you can wire doc approval directly into Jira releases, Linear cycles, GitHub releases, or any other release tooling your team uses.
+
+---
+
+## Adding a release tag
+
+When creating a new project, you'll see an optional **Release** field below the project name.
+
+Enter any free-text label that identifies the release — for example:
+
+- `v2.4.0`
+- `Q3 Launch — Payments`
+- `Sprint 42`
+- `May Release`
+
+This field is optional. If you leave it blank, the project behaves like a standard LaunchDocs project with no release context.
+
+Once a release tag is set, it appears as a badge on the project card in your dashboard so you can see at a glance which projects are tied to active releases.
+
+You can also set or update the release tag at any time from the project settings panel — click the gear icon in the top right of any project.
+
+---
+
+## Making a project release-blocking
+
+When a project has a release tag, you'll see a **Release-blocking** toggle in project settings.
+
+When release-blocking is turned on:
+
+- A warning banner appears in the LaunchPad Approvals section of the project: *"This doc must be approved before [release tag] ships."*
+- Approval invite emails sent to reviewers include a highlighted block telling them their sign-off is required to unblock the release — not just to review a document
+- The export button remains locked until all approvers have signed off, regardless of any other project settings
+
+<Warning>
+Release-blocking projects cannot be exported until every approver has approved. If you need to override this for an urgent export, an Org Admin can use the override option in LaunchPad Approvals — which is recorded in the audit log.
+</Warning>
+
+---
+
+## Configuring the release webhook
+
+When release-blocking is turned on, a **Webhook URL** field appears in project settings.
+
+Paste any URL here and LaunchDocs will send a POST request to that URL the moment all approvers have signed off. This lets you trigger downstream actions in your release tooling automatically — no manual handoff required.
+
+**Example use cases:**
+
+- Transition a Jira release ticket to "Docs approved" status
+- Mark a Linear cycle as ready to ship
+- Trigger a GitHub Actions workflow that publishes the release
+- Ping a Slack channel that docs are approved and the release is unblocked
+
+### Webhook payload
+
+LaunchDocs sends a JSON POST with the following shape:
+
+```json
+{
+  "event": "release_docs_approved",
+  "project_id": "your-project-uuid",
+  "project_name": "IAM Getting Started Guide",
+  "release_tag": "v2.4.0",
+  "approved_at": "2026-05-21T14:32:00Z",
+  "approvals": [
+    {
+      "reviewer_email": "pm@yourcompany.com",
+      "approved_at": "2026-05-21T14:32:00Z"
+    },
+    {
+      "reviewer_email": "lead@yourcompany.com",
+      "approved_at": "2026-05-21T13:58:00Z"
+    }
+  ],
+  "export_url": "https://launchdocs.ai/projects/your-project-uuid"
+}
+```
+
+### Webhook reliability
+
+- LaunchDocs fires the webhook once when the final approver signs off
+- If the webhook URL is unreachable or returns a non-2xx response, the failure is logged but does not affect the approval or export flow
+- You can verify webhook delivery in the project audit log under `release.webhook_fired`
+
+---
+
+## Full workflow
+
+<Steps>
+  <Step title="Create a project with a release tag">
+    Enter your release label in the Release field when creating the project — for example `v2.4.0`.
+  </Step>
+  <Step title="Upload source material and generate">
+    Upload your Jira tickets, transcripts, PRDs, and any other source files. Generate your documentation as normal.
+  </Step>
+  <Step title="Enable release-blocking">
+    Open project settings, toggle **Release-blocking** on, and paste your webhook URL if you want downstream automation.
+  </Step>
+  <Step title="Send for approval">
+    Click **Request approval** in LaunchPad Approvals and add your reviewers. They'll receive an email that includes the release context — they'll know their sign-off is blocking a release, not just reviewing a doc.
+  </Step>
+  <Step title="Approvers sign off">
+    Reviewers click the link in their email, review the documentation, and approve or request changes. No LaunchDocs account required.
+  </Step>
+  <Step title="Webhook fires and export unlocks">
+    When the final approver signs off, LaunchDocs fires the webhook to your configured URL and unlocks the export button. Publish to Intercom, Zendesk, GitHub, or download as PDF.
+  </Step>
+</Steps>
+
+---
+
+## Availability
+
+Release Tags are available on all plans. The release webhook requires a Growth or Scale plan.
+
+---
+
+## FAQ
+
+**Can I add a release tag to an existing project?**
+
+Yes — open project settings from the gear icon and add the release tag there. It will appear on the dashboard card immediately.
+
+**Can I change the release tag after setting it?**
+
+Yes — update it in project settings at any time. The webhook payload will always use the current release tag at the time the webhook fires.
+
+**What if a reviewer requests changes after I've set release-blocking?**
+
+The export remains locked. The writer makes the requested changes, re-generates if needed, and the reviewer must re-approve before the webhook fires and the export unlocks.
+
+**Can I have multiple release-blocking projects for the same release?**
+
+Yes — each project has its own release tag and its own approval flow. You can tag multiple projects to `v2.4.0` and each one requires independent sign-off.
+
+**What happens if the webhook URL is wrong or goes down?**
+
+The webhook failure is logged in the audit log but does not affect the approval or export. The export will still unlock as normal. Fix the URL in project settings and re-trigger by contacting support if needed.
