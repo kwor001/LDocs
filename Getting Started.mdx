@@ -1,29 +1,37 @@
-## Getting Started with LaunchDocs  
-LaunchDocs is a powerful platform for managing and generating documentation. It supports a wide range of integrations and provides features such as authentication, project management, and file processing. The service is designed to streamline the documentation process and enhance productivity.  
+---
+title: "Getting Started with LaunchDocs"
+---
 
-## Key Features  
-- **Integration Support**: LaunchDocs integrates with various services for seamless documentation management.  
-- **Authentication**: Secure access controls with support for single sign-on (SSO) and multi-factor authentication (MFA).  
-- **Project Management**: Organize and manage documentation projects efficiently with roles and permissions.  
+LaunchDocs is a powerful platform for managing and generating documentation. It supports a wide range of integrations and provides features such as authentication, project management, and file processing. The service is designed to streamline the documentation process and enhance productivity.
+
+## Key Features
+
+- **Integration Support**: LaunchDocs integrates with various services for seamless documentation management.
+- **Authentication**: Secure access controls with support for single sign-on (SSO) and multi-factor authentication (MFA).
+- **Project Management**: Organize and manage documentation projects efficiently with roles and permissions.
 - **File Processing**: Import and process a variety of file formats, including PDF, DOCX, and more.
 
-### Generating and Exporting Content  
-1. Sign in and go to **Dashboard**.  
-2. Click **New Project**, name your project, then click **Create Project**.  
-3. Open the project from your **Dashboard**.  
-4. Add your source material in any supported format.  
-5. Click **Draft Docs** to generate your documentation.  
-6. Edit your document in your preferred output style across different tabs.  
-7. Finalize your documentation and click the **Export** button, selecting your preferred export type and destination.  
-8. Your files are ready to be staged, committed, and pushed to your repository using standard Git workflows.  
+### Generating and Exporting Content
 
-### Manual Token-Based Fallback  
-If your system blocks browser-to-IDE handoff, manually provide your export token to the extension. Open the Command Palette and run **LaunchDocs: Fetch docs with token…**. Paste the token obtained from the export URI and press Enter. The extension fetches and writes files as it would during a browser handoff. This is useful in environments where URI handlers are restricted.  
+1. Sign in and go to **Dashboard**.
+2. Click **New Project**, name your project, then click **Create Project**.
+3. Open the project from your **Dashboard**.
+4. Add your source material in any supported format.
+5. Click **Draft Docs** to generate your documentation.
+6. Edit your document in your preferred output style across different tabs.
+7. Finalize your documentation and click the **Export** button, selecting your preferred export type and destination.
+8. Your files are ready to be staged, committed, and pushed to your repository using standard Git workflows.
 
-### Verifying Your Setup  
-Once files are written to your workspace, you should see:  
-- A `docs/` folder (or another configured subfolder) containing all generated MDX files.  
-- A `docs.json` file with documentation metadata and configuration.  
-- No errors or warnings in the notification area.  
-  
+### Manual Token-Based Fallback
+
+If your system blocks browser-to-IDE handoff, manually provide your export token to the extension. Open the Command Palette and run **LaunchDocs: Fetch docs with token…**. Paste the token obtained from the export URI and press Enter. The extension fetches and writes files as it would during a browser handoff. This is useful in environments where URI handlers are restricted.
+
+### Verifying Your Setup
+
+Once files are written to your workspace, you should see:
+
+- A `docs/` folder (or another configured subfolder) containing all generated MDX files.
+- A `docs.json` file with documentation metadata and configuration.
+- No errors or warnings in the notification area.
+
 You can then review, edit, and commit the generated files as needed.
