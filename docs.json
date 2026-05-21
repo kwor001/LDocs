@@ -20,10 +20,10 @@
         "pages": [
           "Getting Started",
           "LaunchPad Approvals",
-          "Project and Organization Management"
+          "Project and Organization Management",
+          "Release Tags"
         ]
-         },
-    
+      },
       {
         "group": "Support",
         "pages": [
