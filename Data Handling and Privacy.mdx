@@ -28,10 +28,6 @@ During file export, a single-use authentication token is included in the URI, en
 
 Each token expires within 10 minutes if unused, ensuring that it cannot later be used if discovered or shared.
 
-### Single-Use Consumption
-
-Tokens are consumed upon first use. Post-fetch, it becomes invalid, preventing replay attacks.
-
 ## Self-Hosted and Offline Use
 
 Configure `launchdocs.apiBaseUrl` for internal infrastructure to ensure private data flow without public exposure. Offline operation is supported through manual file storage or local deployment without internet connectivity.
