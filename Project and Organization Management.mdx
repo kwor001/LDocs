@@ -13,21 +13,6 @@ Projects in LaunchDocs contain key components:
 - **Template**: Optional templates for document standardization.
 - **Roles**: Defined roles like 'owner' and 'editor.'
 
-#### Project Models
-
-Projects use Pydantic models for lifecycle management, allowing for creation and updating.
-
-```python
-class ProjectCreate(BaseModel):
-    name: str
-    client_name: str
-    doc_template: Optional[str] = 'custom'
-
-class ProjectUpdate(BaseModel):
-    doc_template: Optional[str] = None
-    consolidate_pages: Optional[bool] = None
-```
-
 ### Organization Management
 
 Organizations provide a structured way to group and manage related projects:
@@ -39,11 +24,5 @@ Roles such as 'org\_admin', 'editor', and 'member' dictate user permissions and 
 #### Organization Models
 
 Organizational configurations rely on dynamic setups and customizable settings that may include custom document templates.
-
-```python
-def _slugify_org(name: str) -> str:
-    s = re.sub(r"[^a-z0-9]+", "-", (name or "").lower().strip()).strip("-")
-    return s or "org"
-```
 
 These flexible structures enable efficient oversight and coordination of projects across various teams or departments.

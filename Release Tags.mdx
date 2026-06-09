@@ -36,12 +36,12 @@ When a project has a release tag, you'll see a **Release-blocking** toggle in pr
 
 When release-blocking is turned on:
 
-- A warning banner appears in the LaunchPad Approvals section of the project: *"This doc must be approved before [release tag] ships."*
+- A warning banner appears in the LaunchPad Approvals section of the project: _"This doc must be approved before \[release tag\] ships."_
 - Approval invite emails sent to reviewers include a highlighted block telling them their sign-off is required to unblock the release — not just to review a document
 - The export button remains locked until all approvers have signed off, regardless of any other project settings
 
 <Warning>
-Release-blocking projects cannot be exported until every approver has approved. If you need to override this for an urgent export, an Org Admin can use the override option in LaunchPad Approvals — which is recorded in the audit log.
+  Release-blocking projects cannot be exported until every approver has approved. If you need to override this for an urgent export, an Org Admin can use the override option in LaunchPad Approvals — which is recorded in the audit log.
 </Warning>
 
 ---
@@ -58,31 +58,6 @@ Paste any URL here and LaunchDocs will send a POST request to that URL the momen
 - Mark a Linear cycle as ready to ship
 - Trigger a GitHub Actions workflow that publishes the release
 - Ping a Slack channel that docs are approved and the release is unblocked
-
-### Webhook payload
-
-LaunchDocs sends a JSON POST with the following shape:
-
-```json
-{
-  "event": "release_docs_approved",
-  "project_id": "your-project-uuid",
-  "project_name": "IAM Getting Started Guide",
-  "release_tag": "v2.4.0",
-  "approved_at": "2026-05-21T14:32:00Z",
-  "approvals": [
-    {
-      "reviewer_email": "pm@yourcompany.com",
-      "approved_at": "2026-05-21T14:32:00Z"
-    },
-    {
-      "reviewer_email": "lead@yourcompany.com",
-      "approved_at": "2026-05-21T13:58:00Z"
-    }
-  ],
-  "export_url": "https://launchdocs.ai/projects/your-project-uuid"
-}
-```
 
 ### Webhook reliability
 
